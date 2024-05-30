@@ -12,4 +12,5 @@ import unfv.edu.pe.projection.interfacebased.open.LocalOpenView;
 public interface LocalRepository extends JpaRepository<Local, Long>{
 
 	List<LocalOpenView> findBy();
+	List<Local> findByFloor(String floor);
 }

@@ -25,4 +25,8 @@ public class LocalServiceImpl implements LocalService{
 		return localRepository.findBy();
 	}
 
+	@Override
+	public List<Local> findByFloor(String floor) {		
+		return localRepository.findByFloor(floor);
+	}
 }
