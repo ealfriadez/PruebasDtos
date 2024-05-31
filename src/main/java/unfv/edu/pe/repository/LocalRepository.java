@@ -1,6 +1,7 @@
 package unfv.edu.pe.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,5 +13,5 @@ import unfv.edu.pe.projection.interfacebased.open.LocalOpenView;
 public interface LocalRepository extends JpaRepository<Local, Long>{
 
 	List<LocalOpenView> findBy();
-	List<Local> findByFloor(String floor);
+	Optional<Local> findByFloor(String floor);
 }

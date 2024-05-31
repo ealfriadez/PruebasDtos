@@ -19,4 +19,5 @@ public class Local {
 	private Long id;
 	private String name;
 	private String floor;
+	private Double dmc;
 }

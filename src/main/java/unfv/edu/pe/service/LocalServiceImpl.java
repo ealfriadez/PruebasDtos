@@ -1,6 +1,7 @@
 package unfv.edu.pe.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class LocalServiceImpl implements LocalService{
 	}
 
 	@Override
-	public List<Local> findByFloor(String floor) {		
+	public Optional<Local> findByFloor(String floor) {		
 		return localRepository.findByFloor(floor);
 	}
 }

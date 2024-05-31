@@ -1,8 +1,10 @@
 package unfv.edu.pe.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,16 +22,43 @@ class LocalTest {
 	@Autowired
 	private LocalRepository localRepository;
 	
-	@DisplayName("Test para consultar los locales")
+	@DisplayName("Test para consultar por el nombre del piso")
 	@Test
 	void test() {
 		
-		List<Local> locales = localRepository.findByFloor("Second floor");
-		
-		assertEquals("Second floor", locales.get(0));
+		Optional<Local> local = localRepository.findByFloor("Pet Shop");
+				
+		assertEquals(3000.95, local.get().getDmc());
+		assertTrue(local.get().getName().equals("fifth floor"));
 			
 	}
 	
+	@DisplayName("Test para consultar el campo 'dmc'")
+	@Test
+	void testDMC() {		
+		
+		Optional<Local> local = localRepository.findByFloor("Pet Shop");		
+		assertEquals(3000.95, local.get().getDmc());
+		assertFalse(local.get().getDmc()<0);
+	}
 	
+	@DisplayName("Test para comparar 'dmc'")
+	@Test
+	void testCompareDMC() {		
+		
+		Optional<Local> local = localRepository.findByFloor("Pet Shop");
+		Optional<Local> local1 = localRepository.findByFloor("Pet Shop");
+		
+		assertEquals(local.get(), local1.get());
+	}
 
+	@DisplayName("Test para debito cuenta")
+	@Test
+	void testCompareDMC1() {		
+		
+		Optional<Local> local = localRepository.findByFloor("Pet Shop");
+		Optional<Local> local1 = localRepository.findByFloor("Pet Shop");
+		
+		assertEquals(local.get(), local1.get());
+	}
 }
