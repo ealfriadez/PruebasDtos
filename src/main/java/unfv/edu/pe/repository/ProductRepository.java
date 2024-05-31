@@ -23,4 +23,10 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 
 	//Dynamic
 	<T> T findProductByBrand(String brand, Class<T> type);
+	
+	List<Product> findAll();
+	
+
+	Product findProductforNameProduct(String name);
+
 }
