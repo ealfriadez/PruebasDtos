@@ -49,21 +49,20 @@ public class ProductServiceImpl implements ProductService{
 		return productDTO;
 	}
 
-	@Override
-	public Product findProductforNameProduct(String name) {
-		
-		Optional<Product> productOptional = productRepository.findAll()
-												.stream()
-												.filter(e -> e.getName().contains(name))
-												.findFirst();
-		
-		Product product = null;
-		if (productOptional.isPresent()) {
-			product = productOptional.orElseThrow();
-		}
-		
-		
-		return product;
-	}
+	
+	  @Override public Product findProductforNameProduct(String name) {
+	  
+	  Optional<Product> productOptional = productRepository.findAll() .stream()
+	  .filter(e -> e.getName().contains(name)) .findFirst();
+	  
+	  Product product = null; 
+	  
+	  if (productOptional.isPresent()) { 
+		  product = productOptional.orElseThrow(); 
+	  }
+	  
+	  
+	  return product; }
+	 
 
 }
